@@ -3,6 +3,7 @@ const memoryPrice = document.getElementById("memory-price");
 const storagePrice = document.getElementById("storage-price");
 const deliveryCharge = document.getElementById("delivery-charge");
 const promoTotal = document.getElementById("promo-price");
+const promoButton = document.getElementById("promo-button");
 
 // function for memory price update
 function memoryPriceUpdate(memorySize) {
@@ -43,7 +44,21 @@ function total() {
   promoTotal.innerText = totalMain;
   return totalMain;
 }
+// function for promo total update with promo code
 
+function promoTotalUpdateWithCode() {
+  const promoInput = document.getElementById("promo-input");
+  const promoValue = promoInput.value;
+  const promoTotalValue = parseInt(promoTotal.innerText);
+  if (promoValue == "stevekaku") {
+    const promoTotalCalc = promoTotalValue * 0.8;
+    const promoTotalUpdate = parseFloat(promoTotalCalc);
+    promoTotal.innerText = promoTotalUpdate;
+    promoInput.value = "";
+    promoButton.innerText = "Applied";
+    promoButton.disabled = true;
+  }
+}
 //event handler for memory option
 
 document.getElementById("memory-16gb").addEventListener("click", function () {
@@ -77,13 +92,5 @@ document.getElementById("delivery-paid").addEventListener("click", function () {
 //event handler for promo code
 
 document.getElementById("promo-button").addEventListener("click", function () {
-  const promoInput = document.getElementById("promo-input");
-  const promoValue = promoInput.value;
-  const promoTotalValue = parseInt(promoTotal.innerText);
-  if (promoValue == "stevekaku") {
-    const promoTotalCalc = promoTotalValue * 0.8;
-    const promoTotalUpdate = parseFloat(promoTotalCalc);
-    promoTotal.innerText = promoTotalUpdate;
-    promoTotal.value = "";
-  }
+  promoTotalUpdateWithCode();
 });
