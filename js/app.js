@@ -32,7 +32,7 @@ function PriceUpdate(values) {
   }
   //total price update and button activation
   totalBalanceUpdated();
-  promoButtonActive();
+  promoButtonActivate();
 }
 
 // function for total price update and promo total update
@@ -67,7 +67,8 @@ function promoTotalUpdateWithCode() {
 }
 
 // function for promo button enabling
-function promoButtonActive() {
+
+function promoButtonActivate() {
   promoButton.disabled = false;
   promoButton.innerText = "Apply";
 }
