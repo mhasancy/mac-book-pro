@@ -11,29 +11,33 @@ const promoTotal = document.getElementById("promo-price");
 function PriceUpdate(values) {
   //condition for memory price update
   if (values == "8gb" || values == "16gb") {
-    const memoryPriceText = document.getElementById("memory-" + values).value;
-    memoryPrice.innerText = parseInt(memoryPriceText);
+    const memoryPriceUpdated = document.getElementById(
+      "memory-" + values
+    ).value;
+    memoryPrice.innerText = parseInt(memoryPriceUpdated);
   }
   //condition for storage price update
   else if (values == "256gb" || values == "512gb" || values == "1tb") {
-    const storagePriceText = document.getElementById("storage-" + values).value;
-    storagePrice.innerText = parseInt(storagePriceText);
+    const storagePriceUpdated = document.getElementById(
+      "storage-" + values
+    ).value;
+    storagePrice.innerText = parseInt(storagePriceUpdated);
   }
   //condition for delivery charge update
   else if (values == "free" || values == "paid") {
-    const deliveryChargeText = document.getElementById(
+    const deliveryChargeUpdated = document.getElementById(
       "delivery-" + values
     ).value;
-    deliveryCharge.innerText = parseInt(deliveryChargeText);
+    deliveryCharge.innerText = parseInt(deliveryChargeUpdated);
   }
   //total price update and button activation
-  totalBalance();
+  totalBalanceUpdated();
   promoButtonActive();
 }
 
 // function for total price update and promo total update
 
-function totalBalance() {
+function totalBalanceUpdated() {
   //total price updated
   const totalPriceUpdated =
     1299 +
