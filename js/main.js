@@ -11,6 +11,7 @@ function memoryPriceUpdate(memorySize) {
   const memoryPriceText = memoryPriceValue.value;
   memoryPrice.innerText = parseInt(memoryPriceText);
   total();
+  promoButtonActive();
 }
 // function for storage price update
 function storagePriceUpdate(storageSize) {
@@ -18,6 +19,7 @@ function storagePriceUpdate(storageSize) {
   const storagePriceText = storagePriceValue.value;
   storagePrice.innerText = parseInt(storagePriceText);
   total();
+  promoButtonActive();
 }
 // function for storage delivery charge update
 
@@ -28,6 +30,7 @@ function deliveryChargeUpdate(deliveryMethod) {
   const deliveryChargeText = deliveryChargeValue.value;
   deliveryCharge.innerText = parseInt(deliveryChargeText);
   total();
+  promoButtonActive();
 }
 
 // function for total price update and promo total update
@@ -58,6 +61,11 @@ function promoTotalUpdateWithCode() {
     promoButton.innerText = "Applied";
     promoButton.disabled = true;
   }
+}
+// function for promo button active
+function promoButtonActive() {
+  promoButton.disabled = false;
+  promoButton.innerText = "Apply";
 }
 //event handler for memory option
 
@@ -91,6 +99,6 @@ document.getElementById("delivery-paid").addEventListener("click", function () {
 
 //event handler for promo code
 
-document.getElementById("promo-button").addEventListener("click", function () {
+promoButton.addEventListener("click", function () {
   promoTotalUpdateWithCode();
 });
