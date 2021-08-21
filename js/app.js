@@ -3,6 +3,7 @@ const memoryPrice = document.getElementById("memory-price");
 const storagePrice = document.getElementById("storage-price");
 const deliveryCharge = document.getElementById("delivery-charge");
 const totalPrice = document.getElementById("total-price");
+const promoInput = document.getElementById("promo-input");
 const promoButton = document.getElementById("promo-button");
 const promoTotal = document.getElementById("promo-price");
 
@@ -52,7 +53,6 @@ function totalBalanceUpdated() {
 // function for promo total update with promo code
 
 function promoTotalUpdateWithCode() {
-  const promoInput = document.getElementById("promo-input");
   //promo code condition
   if (promoInput.value == "stevekaku") {
     //promo price calculation
@@ -69,6 +69,7 @@ function promoTotalUpdateWithCode() {
 // function for promo button enabling
 
 function promoButtonActivate() {
+  promoInput.value = "";
   promoButton.disabled = false;
   promoButton.innerText = "Apply";
 }
